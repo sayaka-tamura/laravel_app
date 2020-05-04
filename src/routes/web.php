@@ -37,3 +37,15 @@ Route::get('/TitleAndLink/about', 'AboutController@getIndex');
 Route::get('/subpage', function () {
     return view('subpage');
 });
+
+# 入力画面
+Route::get('validation/', [
+    'uses' => 'ValiDemoController@getIndex',
+    'as' => 'validation.index'
+]);
+
+# 確認画面
+Route::post('validation/confirm', [
+    'uses' => 'ValiDemoController@confirm',
+    'as' => 'validation.confirm'
+]);

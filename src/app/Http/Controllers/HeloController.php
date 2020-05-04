@@ -23,8 +23,6 @@ class HeloController extends Controller
     //return view('helo', ['message' => $res]);
   }
 
-
-  // Not Work
   public function postIndex(Request $request)
   {
     // Try to Redirect and post that user typed at helo.php

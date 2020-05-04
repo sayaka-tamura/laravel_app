@@ -21,7 +21,10 @@
       <dt>名前：</dt>
       <dd>
         <input type="text" name="username" />
-        @if($errors->has('username'))<br><span class="error">{{ $errors->first('username') }}</span> @endif
+        <!-- errors: エラーを　View で受け取る -->
+        @if($errors->has('username'))<br>
+        <span class="error">{{ $errors->first('username') }}</span>
+        @endif
       </dd>
     </dl>
 
@@ -29,15 +32,19 @@
       <dt>Email：</dt>
       <dd>
         <input type="text" name="mail" />
-        @if($errors->has('mail'))<br><span class="error">{{ $errors->first('mail') }}</span> @endif
+        @if($errors->has('mail'))<br>
+        <span class="error">{{ $errors->first('mail') }}</span> 
+        @endif
       </dd>
     </dl>
 
     <dl>
       <dt>年齢：</dt>
       <dd>
-        <input type="text" name="age" />歳
-        @if($errors->has('age'))<br><span class="error">{{ $errors->first('age') }}</span> @endif
+        <input type="text" name="age" /> 歳
+        @if($errors->has('age'))<br>
+        <span class="error">{{ $errors->first('age') }}</span>
+        @endif
       </dd>
     </dl>
 
@@ -45,7 +52,9 @@
       <dt>ご意見ご感想：</dt>
       <dd>
         <textarea name="opinion" rows="8" cols="40"></textarea>
-        @if($errors->has('opinion'))<br><span class="error">{{ $errors->first('opinion') }}</span> @endif
+        @if($errors->has('opinion'))<br>
+        <span class="error">{{ $errors->first('opinion') }}</span>
+        @endif
       </dd>
 
       <div><input type="submit" name="button1" value="送信" /></div>

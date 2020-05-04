@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class AboutController extends Controller
 {
-    public function getIndex(Request $request)
+    public function getIndex()
     {
         return view('/TitleAndLink/about');
     }
