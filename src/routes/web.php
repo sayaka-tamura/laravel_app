@@ -17,14 +17,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// views>helo.php を見に行く
+// views>helo.php を見に行く (url: /helo)
 // Route::get('/helo', function () {
 //     return view('helo',['message' => 'Hello World!']);
 // });
 
-// Controllers>HeloController.php 内の function <getIndex>　を見に行く
-Route::get('/helo', 'HeloController@getIndex');
+// Controllers>HeloController.php 内の function <getIndex>　を見に行く (url: /helo)
+Route::get('/simpleForm/helo', 'HeloController@getIndex');
+// Controllers>HeloController.php 内の function <getIndex>　を見に行く (url: /helo)
+Route::post('/simpleForm/helo', 'HeloController@postIndex');
 
+// Controllers>HeloController.php 内の function <postIndex>　を見に行く (url:/send)
+// Route::post('/send','HeloController@postIndex');
+
+// For Show About Page (url:/about)
+Route::get('/TitleAndLink/about', 'AboutController@getIndex');
 
 //下層ページ設定
 Route::get('/subpage', function () {

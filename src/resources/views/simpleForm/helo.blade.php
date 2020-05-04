@@ -18,7 +18,8 @@
 <body>
   <h1>Sample</h1>
   <p><?php echo $message; ?></p>
-  <form method="post" action="/helo">
+  <form method="post" action="/public/simpleForm/helo">
+  {{ csrf_field() }}
     <input type="text" name="str">
     <input type="submit">
   </form>
