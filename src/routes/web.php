@@ -38,14 +38,25 @@ Route::get('/subpage', function () {
     return view('subpage');
 });
 
+// For Validation on ValiDemoController or ValiDemoRequest 
 # 入力画面
-Route::get('validation/', [
+Route::get('/validation', [
     'uses' => 'ValiDemoController@getIndex',
     'as' => 'validation.index'
 ]);
 
 # 確認画面
-Route::post('validation/confirm', [
+Route::post('/validation/confirm', [
     'uses' => 'ValiDemoController@confirm',
     'as' => 'validation.confirm'
 ]);
+
+// For Bootstrap4 HTML Validation
+Route::get('/index', function(){
+    return view('/bootstrap_htmlValidation/index');
+});
+
+// For Bootstrap4 HTML x Laravel Validation
+Route::get('contact/', 'ContactController@input');         // GETメソッドでアクセスした場合は「入力画面」
+Route::patch('contact/', 'ContactController@confirm');     // PATCHメソッドでアクセスした場合は「確認画面」
+// Route::post('contact/', 'ContactController@finish'); 今回はここはしません       // POSTメソッドでアクセスした場合は「完了画面」
