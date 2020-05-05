@@ -15,4 +15,15 @@ class ContactController extends Controller
         );
         return view('contact.input')->with($hash);
     }
+
+    // 確認画面
+    public function confirm(\App\Http\Requests\ContactRequest $request)
+    {
+        // Bladeで使う変数
+        $hash = array(
+            'subtitle' => '確認画面',
+            'request' => $request,
+        );
+        return view('contact.confirm')->with($hash);
+    }
 }
