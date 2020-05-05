@@ -16,4 +16,15 @@ class InsertDemoController extends Controller
         $data = $request->all();
         return view('insert.confirm')->with($data);
     }
+
+    public function finish(\App\Http\Requests\InsertDemoRequest $request)
+    {
+        $user = new \App\Worker;
+        $user->username = $request->username;
+        $user->mail = $request->mail;
+        $user->age = $request->age;
+        $user->save();
+
+        return view('insert.finish');
+    }
 }
