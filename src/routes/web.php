@@ -57,6 +57,19 @@ Route::get('/index', function(){
 });
 
 // For Bootstrap4 HTML x Laravel Validation
-Route::get('contact/', 'ContactController@input');         // GETメソッドでアクセスした場合は「入力画面」
-Route::patch('contact/', 'ContactController@confirm');     // PATCHメソッドでアクセスした場合は「確認画面」
+Route::get('/contact', 'ContactController@input');         // GETメソッドでアクセスした場合は「入力画面」
+Route::patch('/contact', 'ContactController@confirm');     // PATCHメソッドでアクセスした場合は「確認画面」
 // Route::post('contact/', 'ContactController@finish'); 今回はここはしません       // POSTメソッドでアクセスした場合は「完了画面」
+
+// For inserting data to DB from input form
+# 入力画面
+Route::get('/request', [
+    'uses' => 'InsertDemoController@getIndex',
+    'as' => 'insert.index'
+]);
+
+# 確認画面
+Route::post('/request/confirm', [
+    'uses' => 'InsertDemoController@confirm',
+    'as' => 'insert.confirm'
+]);
