@@ -34,4 +34,26 @@
     </div>
   </div>
 </form>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">名前</th>
+      <th scope="col">メールアドレス</th>
+      <th scope="col">年齢</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach ($workers as $worker)
+    <tr>
+      <td>{{ $worker->username }}</td>
+      <td>{{ $worker->mail }}</td>
+      <td>{{ $worker->age }}</td>
+    </tr>
+    @endforeach
+  </tbody>
+</table>
+<div class="text-center">
+  {{ $workers->links() }}
+</div>
 @endsection

@@ -8,7 +8,8 @@ class InsertDemoController extends Controller
 {
     public function getIndex()
     {
-        return view('insert.index');
+        $workers = \App\Worker::orderBy('created_at', 'desc')->paginate(5);
+        return view('insert.index')->with('workers',$workers);
     }
 
     public function confirm(\App\Http\Requests\InsertDemoRequest $request)

@@ -75,7 +75,7 @@ Route::post('/request/confirm', [
 ]);
 
 # 完了画面
-Route::post('insert/finish', [
+Route::post('/request/finish', [
     'uses' => 'InsertDemoController@finish',
     'as' => 'insert.finish'
 ]);
