@@ -79,3 +79,16 @@ Route::post('/request/finish', [
     'uses' => 'InsertDemoController@finish',
     'as' => 'insert.finish'
 ]);
+
+# Contact Form <https://www.ritolab.com/entry/38>
+Route::get('mailable/preview', function(){
+    return new App\Mail\SampleNotification();
+});
+
+Route::get('mailable/send', 'SampleController@SampleNotification');
+
+# Laravel 学習帳　（メール送信＜ログ出力/Mailtrap＞）
+Route::get('/contactform_log', 'ContactFormController@input');                # GETメソッドでアクセスした場合は「入力画面」
+Route::post('/contactform_log/confirm', 'ContactFormController@confirm');     # POSTメソッドでアクセスした場合は「確認画面」
+Route::post('/contactform_log/finish', 'ContactFormController@finish');       # 完了画面
+Route::get('/contactform_log/finish', 'ContactFormController@email.message'); # メールログ出力/Mailtrap
