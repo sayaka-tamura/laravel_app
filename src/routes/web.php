@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -91,4 +92,7 @@ Route::get('mailable/send', 'SampleController@SampleNotification');
 Route::get('/contactform_log', 'ContactFormController@input');                # GETメソッドでアクセスした場合は「入力画面」
 Route::post('/contactform_log/confirm', 'ContactFormController@confirm');     # POSTメソッドでアクセスした場合は「確認画面」
 Route::post('/contactform_log/finish', 'ContactFormController@finish');       # 完了画面
-Route::get('/contactform_log/finish', 'ContactFormController@email.message'); # メールログ出力/Mailtrap
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
